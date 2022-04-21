@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function IntroSection({ onClick }) {
   return (
-    <SectionWrapper style={{ maxWidth: "555px" }}>
+    <SectionWrapper className="section-wrapper" style={{ maxWidth: "555px" }}>
       <VerticalLineContainer style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "50%", left: "50%" }} />
       <VerticalContainer>
         <VerticalAlignContent>
@@ -19,8 +19,8 @@ function IntroSection({ onClick }) {
               Can’t decide where to roam this year? We’ve got you covered. Take our quiz to find out your Travel Personality – and we’ll take care of the rest.
             </IntroP>
             <TakeQuizText style={{ lineHeight: "1.42", letterSpacing: ".1em", color: "#ff5a5f", fontSize: "14px" }}>Take the quiz!</TakeQuizText>
-            <SliderDownContainer style={{ borderRadius: "50%", border: "1px solid #e4e4e4" }}>
-              <svg onClick={onClick} xmlns="http://www.w3.org/2000/svg" width="21" height="14" viewBox="0 0 21 14">
+            <SliderDownContainer onClick={onClick} style={{ borderRadius: "50%", border: "1px solid #e4e4e4" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="14" viewBox="0 0 21 14">
                 <path fill="#B4A76C" fillRule="nonzero" d="M10.5 14L0 3.587 3.615 0 10.5 6.829 17.385 0 21 3.586z"></path>
               </svg>
             </SliderDownContainer>
@@ -50,7 +50,7 @@ export const ResponsiveImage = tw.div`
 `;
 
 export const VerticalAlignContent = tw.div`
- text-center align-middle flex flex-col items-center	justify-center	h-full relative
+ text-center align-middle table-cell relative
 `;
 
 export const HomeHeadText = tw.h1`
