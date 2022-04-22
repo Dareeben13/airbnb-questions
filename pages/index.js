@@ -60,7 +60,12 @@ export default function Home() {
         <Formik
           initialValues={{ questionOne: "", questionTwo: "" }}
           onSubmit={(values, { setSubmitting }) => {
-            console.log({ values });
+            let currentEmptyKeys = Object.keys(values).filter((key) => values[key] === "");
+            if (currentEmptyKeys.length > 0) {
+              scroll(currentEmptyKeys[0]);
+            } else {
+              console.log(values);
+            }
           }}
         >
           {(formik) => (

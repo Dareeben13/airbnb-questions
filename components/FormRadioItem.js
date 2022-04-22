@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import tw from "tailwind-styled-components";
+import { QuestionContext } from "./QuestionContext";
 
 export const FormRadioItem = (props) => {
   const [checked, setChecked] = useState(false);
+  const { currentSection, lastId } = useContext(QuestionContext);
   const { currentIndex, index, setCurrentIndex, onNext, formik, ...rest } = props;
   const onChange = (e) => {
     setChecked(e.target.checked);
     formik.setFieldValue(e.target.name, e.target.value);
     setCurrentIndex(index);
+    currentSection === lastId && formik.handleSubmit();
     onNext && onNext();
   };
+
   return (
     <FormRadioWrapper className={`rad-wrap ${checked && currentIndex === index ? "active-rad-wrap" : ""}`} style={{ padding: "28px 43px 28px 31px" }}>
       <FormLabel className="lb" style={{ fontSize: "16px" }}>
