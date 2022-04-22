@@ -69,10 +69,10 @@ export default function Home() {
               <SecondQuestion formik={formik} />
               {currentSection !== "intro" && (
                 <>
-                  <div className="small-logo">
+                  <div className="small-logo no-mobile">
                     <Image src={airbnbLogo} alt="Small Airbnb logo" />
                   </div>
-                  <div className="fixed link-icons flex gap-x-3.5">
+                  <div className="fixed link-icons no-mobile flex gap-x-3.5">
                     <FontAwesomeIcon className="cursor-pointer" icon={faFacebook} />
                     <FontAwesomeIcon className="cursor-pointer" icon={faTwitter} />
                   </div>
