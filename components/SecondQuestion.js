@@ -5,7 +5,7 @@ import flightMovie from "../assets/flightMovie.png";
 import { SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "./IntroSection";
 import { FormRadioItem } from "./FormRadioItem";
 import { AnswersWrapper, LeftQuestions, RightFloatedContainer, SectionContent } from "./FirstQuestion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const QS = [
   {
@@ -30,8 +30,10 @@ const QS = [
   },
 ];
 
-export const SecondQuestion = () => {
+export const SecondQuestion = ({ formik }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {}, []);
   return (
     <SectionWrapper className="section-wrapper rtq" id="questionTwo" style={{ maxWidth: "1144px" }}>
       <VerticalLineContainer className="no-mobile" style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "100%", left: "50%" }} />
@@ -42,7 +44,7 @@ export const SecondQuestion = () => {
             <RightFloatedContainer className="right-floated" style={{ paddingLeft: "57px" }}>
               <AnswersWrapper className="ans-wrap" style={{ paddingTop: "20px" }}>
                 {QS.map(({ id, label }, index) => (
-                  <FormRadioItem currentIndex={currentIndex} value={id} index={index} setCurrentIndex={setCurrentIndex} key={index} id={id} label={label} name="questionTwo" />
+                  <FormRadioItem formik={formik} currentIndex={currentIndex} value={id} index={index} setCurrentIndex={setCurrentIndex} key={index} id={id} label={label} name="questionTwo" />
                 ))}
               </AnswersWrapper>
             </RightFloatedContainer>

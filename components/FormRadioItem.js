@@ -1,13 +1,13 @@
-import { Form, withFormik, Field } from "formik";
 import { useState } from "react";
 
 import tw from "tailwind-styled-components";
 
 export const FormRadioItem = (props) => {
   const [checked, setChecked] = useState(false);
-  const { currentIndex, index, setCurrentIndex, onNext, ...rest } = props;
+  const { currentIndex, index, setCurrentIndex, onNext, formik, ...rest } = props;
   const onChange = (e) => {
     setChecked(e.target.checked);
+    formik.setFieldValue(e.target.name, e.target.value);
     setCurrentIndex(index);
     onNext && onNext();
   };

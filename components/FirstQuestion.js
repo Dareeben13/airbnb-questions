@@ -1,15 +1,18 @@
 import tw from "tailwind-styled-components";
 
+import { Formik, Field, Form } from "formik";
+
 import Image from "next/image";
 import flightDresss from "../assets/flight-dress.png";
 import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "./IntroSection";
 import { FormRadioItem } from "./FormRadioItem";
 import { useState, useContext } from "react";
 import { QuestionContext } from "./QuestionContext";
+import { useEffect } from "react";
 
 export const FirstQuestion = ({ formik }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const { onNext } = useContext(QuestionContext);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const QA = [
     {
       id: "Sweat pants. Duh",
@@ -37,7 +40,18 @@ export const FirstQuestion = ({ formik }) => {
             <RightFloatedContainer className="right-floated" style={{ paddingLeft: "57px" }}>
               <AnswersWrapper className="ans-wrap" style={{ paddingTop: "20px" }}>
                 {QA.map(({ id }, index) => (
-                  <FormRadioItem value={id} currentIndex={currentIndex} onNext={onNext} index={index} setCurrentIndex={setCurrentIndex} key={index} id={id} label={id} name="questionOne" />
+                  <FormRadioItem
+                    formik={formik}
+                    value={id}
+                    currentIndex={currentIndex}
+                    onNext={onNext}
+                    index={index}
+                    setCurrentIndex={setCurrentIndex}
+                    key={index}
+                    id={id}
+                    label={id}
+                    name="questionOne"
+                  />
                 ))}
               </AnswersWrapper>
             </RightFloatedContainer>
@@ -79,7 +93,7 @@ export const RightFloatedContainer = tw.div`
 export const QuestionWrapper = tw.div`
 
 `;
-export const AnswersWrapper = tw.div`
+export const AnswersWrapper = tw(Form)`
 
 `;
 
