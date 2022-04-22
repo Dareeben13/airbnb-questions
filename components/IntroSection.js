@@ -6,16 +6,18 @@ import Image from "next/image";
 
 function IntroSection({ onClick }) {
   return (
-    <SectionWrapper className="section-wrapper" style={{ maxWidth: "555px" }}>
-      <VerticalLineContainer style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "50%", left: "50%" }} />
+    <SectionWrapper className="section-wrapper" id="intro" style={{ maxWidth: "555px" }}>
+      <VerticalLineContainer className="no-mobile" style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "50%", left: "50%" }} />
       <VerticalContainer>
         <VerticalAlignContent>
           <Content style={{ background: "white" }}>
-            <ResponsiveImage style={{ maxWidth: "63.4px" }}>
+            <ResponsiveImage className="res-image">
               <Image src={airbnbLogo} alt="Airbnb logo" />
             </ResponsiveImage>
-            <HomeHeadText style={{ fontSize: "64px", marginTop: "45px" }}>Airbnb Trip Matcher</HomeHeadText>
-            <IntroP style={{ letterSpacing: "normal", lineHeight: "1.25", fontSize: "15px", marginBottom: "90px" }}>
+            <HomeHeadText className="intro-H1" style={{ fontSize: "64px", marginTop: "45px" }}>
+              Airbnb Trip Matcher
+            </HomeHeadText>
+            <IntroP className="intro-p" style={{ letterSpacing: "normal", lineHeight: "1.25", fontSize: "15px", marginBottom: "90px" }}>
               Can’t decide where to roam this year? We’ve got you covered. Take our quiz to find out your Travel Personality – and we’ll take care of the rest.
             </IntroP>
             <TakeQuizText style={{ lineHeight: "1.42", letterSpacing: ".1em", color: "#ff5a5f", fontSize: "14px" }}>Take the quiz!</TakeQuizText>

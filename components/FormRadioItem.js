@@ -5,10 +5,11 @@ import tw from "tailwind-styled-components";
 
 export const FormRadioItem = (props) => {
   const [checked, setChecked] = useState(false);
-  const { currentIndex, index, setCurrentIndex, ...rest } = props;
+  const { currentIndex, index, setCurrentIndex, onNext, ...rest } = props;
   const onChange = (e) => {
     setChecked(e.target.checked);
     setCurrentIndex(index);
+    onNext && onNext();
   };
   return (
     <FormRadioWrapper className={`rad-wrap ${checked && currentIndex === index ? "active-rad-wrap" : ""}`} style={{ padding: "28px 43px 28px 31px" }}>

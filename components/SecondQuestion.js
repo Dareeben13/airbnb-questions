@@ -33,16 +33,16 @@ const QS = [
 export const SecondQuestion = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
-    <SectionWrapper className="section-wrapper" id="questionTwo" style={{ maxWidth: "1144px" }}>
-      <VerticalLineContainer style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "100%", left: "50%" }} />
+    <SectionWrapper className="section-wrapper rtq" id="questionTwo" style={{ maxWidth: "1144px" }}>
+      <VerticalLineContainer className="no-mobile" style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "100%", left: "50%" }} />
       <VerticalContainer>
         <VerticalAlignContent>
-          <SectionContent>
+          <SectionContent className="sec-content">
             <LeftQuestions questionIndex={2} image={flightMovie} question={"You're headed to the airport for an early morning flight. What are you wearing?"} />
-            <RightFloatedContainer style={{ paddingLeft: "57px" }}>
-              <AnswersWrapper style={{ paddingTop: "20px" }}>
+            <RightFloatedContainer className="right-floated" style={{ paddingLeft: "57px" }}>
+              <AnswersWrapper className="ans-wrap" style={{ paddingTop: "20px" }}>
                 {QS.map(({ id, label }, index) => (
-                  <FormRadioItem currentIndex={currentIndex} index={index} setCurrentIndex={setCurrentIndex} key={index} id={id} label={label} name="questionTwo" />
+                  <FormRadioItem currentIndex={currentIndex} value={id} index={index} setCurrentIndex={setCurrentIndex} key={index} id={id} label={label} name="questionTwo" />
                 ))}
               </AnswersWrapper>
             </RightFloatedContainer>
