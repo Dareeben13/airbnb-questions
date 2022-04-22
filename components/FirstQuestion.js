@@ -1,6 +1,6 @@
 import tw from "tailwind-styled-components";
 
-import { Formik, Field, Form } from "formik";
+import { Form } from "formik";
 
 import Image from "next/image";
 import flightDresss from "../assets/flight-dress.png";
@@ -8,7 +8,6 @@ import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContaine
 import { FormRadioItem } from "./FormRadioItem";
 import { useState, useContext } from "react";
 import { QuestionContext } from "./QuestionContext";
-import { useEffect } from "react";
 
 export const FirstQuestion = ({ formik }) => {
   const { onNext } = useContext(QuestionContext);
@@ -79,7 +78,7 @@ export const LeftQuestions = ({ question, image, questionIndex }) => (
 );
 
 export const SectionContent = tw.div`
-mt-3
+mt-3 relative
 `;
 
 export const LeftFloatedContainer = tw.div`

@@ -109,6 +109,38 @@ input[type="radio"]:checked ~ .checkmark::after {
   display: none;
 }
 
+.menu-icon {
+  font-size: 1.5em;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  margin: 51px 34px 0 0;
+}
+
+.small-logo {
+  position: fixed;
+  bottom: 43.2px;
+  left: 60.1px;
+  height: 30px;
+  width: 30px;
+  z-index: 999;
+}
+
+.icon-facebook::before {
+  content: "\f16c";
+}
+
+.icon-twitter::before {
+  content: "\f1ee";
+}
+
+.link-icons {
+  right: 51.2px;
+  bottom: 52px;
+  z-index: 10000;
+}
+
 @media (max-width: 800px) {
   html,
   body {

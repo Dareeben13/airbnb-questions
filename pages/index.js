@@ -2,11 +2,17 @@ import tw from "tailwind-styled-components";
 import { Formik } from "formik";
 
 import { Fragment } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FirstQuestion } from "../components/FirstQuestion";
 import { IntroSection, SliderDownContainer } from "../components/IntroSection";
 import React from "react";
 import { SecondQuestion } from "../components/SecondQuestion";
 import { QuestionContext } from "../components/QuestionContext";
+
+import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+
+import airbnbLogo from "../assets/airbnb-logo.png";
+import Image from "next/image";
 
 export default function Home() {
   const { currentSection, scroll, onPrev, onNext, lastId } = React.useContext(QuestionContext);
@@ -54,21 +60,32 @@ export default function Home() {
         <Formik
           initialValues={{ questionOne: "", questionTwo: "" }}
           onSubmit={(values, { setSubmitting }) => {
-            // setTimeout(() => {
-            //   alert(JSON.stringify(values, null, 2));
-            //   setSubmitting(false);
-            // }, 400);
             console.log({ values });
           }}
         >
           {(formik) => (
-            <Fragment>
+            <div className="relative">
               <FirstQuestion formik={formik} />
               <SecondQuestion formik={formik} />
-            </Fragment>
+              {currentSection !== "intro" && (
+                <>
+                  <div className="small-logo">
+                    <Image src={airbnbLogo} alt="Small Airbnb logo" />
+                  </div>
+                  <div className="fixed link-icons flex gap-x-3.5">
+                    <FontAwesomeIcon className="cursor-pointer" icon={faFacebook} />
+                    <FontAwesomeIcon className="cursor-pointer" icon={faTwitter} />
+                  </div>
+                </>
+              )}
+            </div>
           )}
         </Formik>
       </MainWrapper>
+      <svg className="menu-icon" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+        <path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z" />
+      </svg>
+      {/* <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg> */}
     </Fragment>
   );
 }
