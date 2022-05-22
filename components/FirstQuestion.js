@@ -65,7 +65,7 @@ export const LeftQuestions = ({ question, image, questionIndex }) => (
   <LeftFloatedContainer className="left-floated">
     <QuestionWrapper>
       <QuestionTextWrapper>
-        <Subject style={{ color: "#ff5a5f", letterSpacing: ".2em", fontSize: "11px", lineHeight: "1.42" }}>Question {questionIndex}/2</Subject>
+        <Subject style={{ color: "#ff5a5f", letterSpacing: ".2em", fontSize: "11px", lineHeight: "1.42" }}>Question {questionIndex}/8</Subject>
         <QuestionH1 className="q-h1" style={{ letterSpacing: "-1px", lineHeight: "1.13", marginBottom: "15px", fontSize: "28px" }}>
           {question}
         </QuestionH1>

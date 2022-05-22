@@ -1,53 +1,50 @@
-import tw from "tailwind-styled-components";
-
-import Image from "next/image";
-import flightMovie from "../assets/flightMovie.png";
+import flightNature from "../assets/flightNature.png";
 import { SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "./IntroSection";
 import { FormRadioItem } from "./FormRadioItem";
 import { AnswersWrapper, LeftQuestions, RightFloatedContainer, SectionContent } from "./FirstQuestion";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { QuestionContext } from "./QuestionContext";
 
 const QS = [
   {
-    id: "A comedy",
-    label: "A comedy",
+    id: "Feel so alive",
+    label: "Feel so alive",
   },
   {
-    id: "An action movie",
-    label: "An action movie",
+    id: "Itchy",
+    label: "Itchy",
   },
   {
-    id: "A documentary",
-    label: "A documentary",
+    id: "Inspired",
+    label: "Inspired",
   },
   {
-    id: "A historical drama",
-    label: "A historical drama",
+    id: "Meh, sneakers aren’t my thing",
+    label: "Meh, sneakers aren’t my thing",
   },
   {
-    id: "A musical",
-    label: "A musical",
+    id: "Hungry!",
+    label: "Hungry!",
   },
 ];
 
-export const SecondQuestion = ({ formik }) => {
+export const FourthQuestion = ({ formik }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { onNext } = useContext(QuestionContext);
 
   return (
-    <SectionWrapper className="section-wrapper rtq" id="questionTwo" style={{ maxWidth: "1144px" }}>
+    <SectionWrapper className="section-wrapper rtq" id="questionFour" style={{ maxWidth: "1144px" }}>
       <VerticalLineContainer className="no-mobile" style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "100%", left: "50%" }} />
       <VerticalContainer>
         <VerticalAlignContent>
           <SectionContent className="sec-content">
-            <LeftQuestions questionIndex={2} image={flightMovie} question={"You're headed to the airport for an early morning flight. What are you wearing?"} />
+            <LeftQuestions questionIndex={4} image={flightNature} question={"Nature makes me…"} />
             <RightFloatedContainer className="right-floated" style={{ paddingLeft: "57px" }}>
               <AnswersWrapper className="ans-wrap" style={{ paddingTop: "20px" }}>
                 {QS.map(({ id, label }, index) => (
                   <FormRadioItem
-                    formik={formik}
                     onNext={onNext}
+                    formik={formik}
                     currentIndex={currentIndex}
                     value={id}
                     index={index}
@@ -55,7 +52,7 @@ export const SecondQuestion = ({ formik }) => {
                     key={index}
                     id={id}
                     label={label}
-                    name="questionTwo"
+                    name="questionFour"
                   />
                 ))}
               </AnswersWrapper>

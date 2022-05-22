@@ -4,7 +4,7 @@ export const QuestionContext = createContext();
 
 export const QuestionProivder = ({ children }) => {
   const [currentSection, setCurrentSection] = useState("intro");
-  const Ids = ["intro", "questionOne", "questionTwo"];
+  const Ids = ["intro", "questionOne", "questionTwo", "questionThree", "questionFour", "questionFive", "questionSix", "questionSeven", "questionEigth"];
   const lastId = Ids[Ids.length - 1];
 
   const scroll = (id) => {
